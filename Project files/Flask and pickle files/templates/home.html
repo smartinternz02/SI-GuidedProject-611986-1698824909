@@ -1,0 +1,284 @@
+<script src="{{ url_for('static', filename='star.js') }}"></script>
+
+<style>
+        body {
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            background-image: url('../static/images/freepick.jpg');
+           background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        header{
+            font-size: 17px;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav{
+            display: flex;
+            font-size: 20px;
+            padding: 10px;
+        }
+        nav a {
+            color: rgb(61, 109, 177);
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            color: black;
+            background-color: white;
+        }
+        .container{
+            border-radius: 10px;
+            background-color: white;
+            width: 95%;
+            margin: 10px;
+            margin-left: 30px;
+        }
+        main {
+            padding: 20px;
+        }
+        form {
+            margin-top: 40px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        select,
+        input{
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-size: 16px;
+            width: 25%;
+            padding: 15px;
+            margin: 22px;
+            border-radius: 5px;
+            border-color: rgb(180, 217, 224);
+            border-width: 2px;
+        }
+        
+        button {
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-size: 16px;
+            background-color: #333;
+            border-radius: 40px;
+            width: 25%;
+            height: 50px;
+            color: #fff;
+            padding: 10px;
+            margin: 20px;
+            cursor: pointer;
+        }
+
+        .star-rating-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .star-rating{
+            padding: 35px;
+            padding-right: 80px;
+        }
+        .star {
+            display: inline;
+            cursor: pointer;
+            font-size: 50px;
+            color: #ccc;
+        }
+
+        .star:hover,
+        .star.active {
+            color: #ffcc00;
+        }
+    </style>
+    
+    <html>
+
+    <header id="header">
+        <h1>AeroChoice</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <div>
+        <div class="left-column">
+            <h1 style="font-size: 50px;">Take flight and Discover <br>
+            Journey with AeroChoiceAirways.</h1>
+        </div>
+        <div class="container">
+            <form action="/guest" method="POST">
+                <div>
+                <select name="Airline name" id="airlineName">
+                    <option value="Oman Air">Oman Air</option>
+                    <option value="AB Aviation">AB Aviation</option>
+                    <option value="Adria Airways">Adria Airways</option>
+                    <option value="ZIPAIR">ZIPAIR</option>
+                </select>
+
+                <!-- Other input fields go here -->
+                <select id="seatType" name="Seat Type" required>
+                    <option value="Economy Class">Economy Class</option>
+                    <option value="Business Class">Business Class</option>
+                    <option value="Premium Economy">Premium Economy</option>
+                    <option value="First Class">First Class</option>
+                </select>
+                
+
+                <select id="travelerType" name="Type Of Traveller" required>
+                    <option value="Solo Leisure">Solo Leisure</option>
+                    <option value="Couple Leisure">Couple Leisure</option>
+                    <option value="Business">Business</option>
+                    <option value="Family Leisure">Family Leisure</option>
+                </select>
+                </div>
+
+                <div>
+                <select id="origin" name="Origin" required>
+                    <!-- <option value="AirAsia">January</option> -->
+                    <option value="Moroni">Moroni</option>
+                    <option value="Anjouan">Anjouan</option>
+                    <option value="Frankfurt">Frankfurt</option>
+                    <option value="Bangkok">Bangkok</option>
+                    <option value="BWA">BWA</option>
+                    <option value="Seuol">Seuol</option>
+                    <option value="Singapore">Singapore</option>
+                    <option value="Bangkok">Bangkok</option>
+                    <option value="Tokyo">Tokyo</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="London Heathrow">London Heathrow</option>
+                    <option value="Chengdu">Chengdu</option>
+                    <option value="Tel Aviv">Tel Aviv</option>
+                    <option value="Malta">Malta</option>
+                    <option value="Sofia">Sofia</option>
+                </select>
+
+                <!-- <input type="text" id="" name="" placeholder="Destination" required> -->
+                
+                <select id="destination" name="Destination" required>
+                    <!-- <option value="AirAsia">January</option> -->
+                    <option value="Moheli">Moheli</option>
+                    <option value="Ranchi">Ranchi</option>
+                    <option value="Tel Aviv">Tel Aviv</option>
+                    <option value="Hong Kong">Hong Kong</option>
+                    <option value="Beijing">Beijing</option>
+                    <option value="Anjouan">Anjouan</option>
+                    <option value="Dzaoudzi">Dzaoudzi</option>
+                    <option value="Amsterdam">Amsterdam</option>
+                    <option value="New York">New York</option>
+                    <option value="Los Angeles">Los Angeles</option>
+                    <option value="Narita">Narita</option>
+                    <option value="Japan">Japan</option>
+                    <option value="Bhadrapur">Bhadrapur</option>
+                    <option value="Macau">Macau</option>
+                    <option value="Pristina">Pristina</option>
+                    
+                </select>
+
+
+                <select id="monthFlown" name="Month Flown" required>
+                    <!-- <option value="AirAsia">January</option> -->
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                </select>
+                </div>
+
+
+                <div>
+                <select id="yearFlown" name="Year Flown" required>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                </select>
+
+                <select id="verified" name="Verified" required>
+                    <option value="True">True</option>
+                    <option value="False">False</option>
+                </select>
+
+                </div>
+                <div style="color: black;">
+                    <!-- Seat Comfort -->
+                    <div class="star-rating-group">
+                    <div class="star-rating">
+                        <label for="seatComfort">Seat Comfort:</label>
+                        <input type="hidden" name="S_C" id="seatComfort" />
+                        <div class="star" data-rating="1">&#9733;</div>
+                        <div class="star" data-rating="2">&#9733;</div>
+                        <div class="star" data-rating="3">&#9733;</div>
+                        <div class="star" data-rating="4">&#9733;</div>
+                        <div class="star" data-rating="5">&#9733;</div>
+                    </div>
+
+                    <!-- Food Beverages -->
+                    <div class="star-rating">
+                        <label for="foodBeverages">Food Beverages:</label>
+                        <input type="hidden" name="F_B" id="foodBeverages" />
+                        <div class="star" data-rating="1">&#9733;</div>
+                        <div class="star" data-rating="2">&#9733;</div>
+                        <div class="star" data-rating="3">&#9733;</div>
+                        <div class="star" data-rating="4">&#9733;</div>
+                        <div class="star" data-rating="5">&#9733;</div>
+                    </div>
+                    
+                    <!-- Ground Service -->
+                    <div class="star-rating">
+                        <label for="groundService">Ground Service:</label>
+                        <input type="hidden" name="G_S" id="groundService" />
+                        <div class="star" data-rating="1">&#9733;</div>
+                        <div class="star" data-rating="2">&#9733;</div>
+                        <div class="star" data-rating="3">&#9733;</div>
+                        <div class="star" data-rating="4">&#9733;</div>
+                        <div class="star" data-rating="5">&#9733;</div>
+                    </div>
+                    
+
+
+                    <!-- overall_rating -->
+                    <div class="star-rating">
+                        <label for="overall_rating">Overall Rating:</label>
+                        <input type="hidden" name="O_R" id="overall_rating" />
+                        <div class="star" data-rating="1">&#9733;</div>
+                        <div class="star" data-rating="2">&#9733;</div>
+                        <div class="star" data-rating="3">&#9733;</div>
+                        <div class="star" data-rating="4">&#9733;</div>
+                        <div class="star" data-rating="5">&#9733;</div>
+                    </div>
+            </div>
+            </div>
+                <div>
+                <button type="submit" style="margin-top: 10px;">Check it</button>
+                <div><h1 style="color:black;padding:10px;">{{y}}</h1></div>
+                
+                </div>
+                <!-- <input type="checkbox"> -->
+            </form>
+        </div>
+        </div>
+    </main>
+
+</html>
